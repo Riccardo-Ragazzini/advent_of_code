@@ -1,7 +1,9 @@
-package Day1.Ch1;
+package Day1.Ch2;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import Day1.Ch1.ReadInputFile;
 
 /*this class need the file name (or the path of the input file) and the starting dialvalue*/
 
@@ -39,20 +41,28 @@ public class DecriptSecretEntrance{
         }else if (directionFromFile.equals("R")){
             this.moveRight();
         }
+        this.zeroCounter+=Integer.parseInt(this.numberFromFile)/100;
     }
 
     private void moveRight(){
         this.dialValue = this.dialValue + (Integer.parseInt(this.numberFromFile) % 100);
+        if (this.dialValue ==100){
+            this.zeroCounter--;
+        }
         if(this.dialValue > 99){
             this.dialValue-=100;
-
+            this.zeroCounter++;
         }
     }
 
     private void moveLeft(){
         this.dialValue=this.dialValue-(Integer.parseInt(this.numberFromFile)%100);
+        if (this.dialValue==-100 || this.dialValue==-Integer.parseInt(this.numberFromFile)%100){
+            this.zeroCounter--;
+        } 
         if (this.dialValue<0){
             this.dialValue+=100;
+            this.zeroCounter++;
         }
     }
     private void countZeros(){

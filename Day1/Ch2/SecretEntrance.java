@@ -1,6 +1,4 @@
-package Day1.Ch1;
-
-import Day1.Ch2.DecriptSecretEntrance;
+package Day1.Ch2;
 
 public class SecretEntrance {
 
