@@ -25,6 +25,3 @@ public class IDsChecker {
     }
     
 }
-/*  260 * 320 
-    100 * 290 
-*/
