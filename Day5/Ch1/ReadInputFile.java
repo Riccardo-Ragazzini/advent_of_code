@@ -1,4 +1,4 @@
-package Day4.Ch1;
+package Day5.Ch1;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -8,7 +8,8 @@ import java.util.Scanner;
 
 public class ReadInputFile{
     private File inputFile;
-    private int lineLength;
+    ArrayList<String> listOfRanges;
+    ArrayList<String> listOfNumber;
 
     public ReadInputFile(String fileName){
         inputFile = new File(fileName);    
@@ -25,14 +26,19 @@ public class ReadInputFile{
     }
 
     private ArrayList<String> mapFileToListOfjoltage(Scanner file){
-        ArrayList<String> array = new ArrayList<String>();
+        listOfRanges= new ArrayList<String>();
+        listOfNumber = new ArrayList<String>();
+        do{
+            listOfRanges.addAll(Arrays.asList(file.nextLine().split("-")));
+        }while (listOfRanges.getLast()!="");
+        listOfRanges.removeLast();
         while (file.hasNextLine()){
-
-            array.addAll(Arrays.asList(file.nextLine().split("")));
+            listOfNumber.add(file.nextLine());
         }
-        return array;
+        return listOfRanges;
     }
-    public int getLineLength(){
-        return lineLength;
+
+    public ArrayList<String> listOfNumber(){
+        return listOfNumber;
     }
 }
